@@ -1,4 +1,4 @@
-const integers = [2734, 1994, 5500, 3787, 3950, 403];
+const integers = [2734, 1994, 5500, 3787, 3950, 403, 1000, 3002];
 
 integers.forEach((int) => {
   try {
@@ -49,9 +49,7 @@ function integerToRoman(integer) {
             .get(placeValue * 5)
             .concat(romanNumerals.get(placeValue).repeat(numericValue - 5));
       }
-    })
-    .join('-')
-    .replace('--', '-');
+    });
 
-  return roman.endsWith('-') ? roman.slice(0, -1) : roman;
+  return roman.filter((value) => Boolean(value)).join('-');
 }
