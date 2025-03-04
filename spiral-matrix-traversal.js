@@ -1,3 +1,5 @@
+import { rotateMatrix as rotate } from './utils.js';
+
 const matrix = [
   [1, 6, 11, 16],
   [2, 7, 12, 17],
@@ -14,10 +16,4 @@ function traverse(matrix) {
       ? [...matrix]
       : matrix.splice(0, 1).concat(traverse(rotate(matrix)))
   ).flatMap((el) => el);
-}
-
-function rotate(matrix) {
-  return matrix[0].length == 1
-    ? [matrix.map((el) => el[0])]
-    : [matrix.map((el) => el.pop())].concat(rotate(matrix));
 }
